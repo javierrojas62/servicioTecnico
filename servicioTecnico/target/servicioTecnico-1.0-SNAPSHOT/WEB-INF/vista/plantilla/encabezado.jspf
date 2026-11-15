@@ -1,0 +1,26 @@
+<%@page pageEncoding="UTF-8"%>
+<%-- Encabezado comun: se incluye al principio del body de cada pagina --%>
+<header>
+    <b>Servicio T&eacute;cnico de PC</b> |
+    <a href="${pageContext.request.contextPath}/index.jsp">Inicio</a> |
+    <a href="${pageContext.request.contextPath}/ListarClientes">Clientes</a> |
+    <a href="${pageContext.request.contextPath}/ListarOrdenes">&Oacute;rdenes</a> |
+    <a href="${pageContext.request.contextPath}/ListarItems">&Iacute;tems</a>
+    <c:if test="${sessionScope.usuario.rol == 'ADMIN'}">
+        | <a href="${pageContext.request.contextPath}/ListarUsuarios">Usuarios</a>
+    </c:if>
+    &nbsp;&nbsp;&nbsp;
+    Hola, <b>${sessionScope.usuario.nombre}</b> (${sessionScope.usuario.rol}) |
+    <a href="${pageContext.request.contextPath}/Logout">Cerrar sesi&oacute;n</a>
+</header>
+<hr>
+
+<%-- Mensajes de una sola vez (se guardan en sesion y se borran al mostrarlos) --%>
+<c:if test="${not empty sessionScope.mensaje}">
+    <p style="color:green"><b>${sessionScope.mensaje}</b></p>
+    <c:remove var="mensaje" scope="session"/>
+</c:if>
+<c:if test="${not empty sessionScope.error}">
+    <p style="color:red"><b>${sessionScope.error}</b></p>
+    <c:remove var="error" scope="session"/>
+</c:if>

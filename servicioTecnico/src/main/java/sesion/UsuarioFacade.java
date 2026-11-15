@@ -30,18 +30,40 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
     }
 
     /**
-     * Busca un usuario por nombre de usuario y contraseña.
+     * Busca un usuario ACTIVO por nombre de usuario y contraseña.
      * La contraseña se compara como hash SHA-256: en la base nunca se guarda en texto plano.
      * Devuelve el usuario, o null si los datos no coinciden.
      */
     public Usuario login(String usuario, String clave) {
         List<Usuario> lista = em.createQuery(
-                "SELECT u FROM Usuario u WHERE u.usuario = :usuario AND u.password = :password",
+                "SELECT u FROM Usuario u "
+                + "WHERE u.usuario = :usuario AND u.password = :password AND u.activo = true",
                 Usuario.class)
                 .setParameter("usuario", usuario)
                 .setParameter("password", hash(clave))
                 .getResultList();
         return lista.isEmpty() ? null : lista.get(0);
+    }
+
+    /** Usuarios ordenados: primero los activos, después por nombre. */
+    public List<Usuario> listarOrdenados() {
+        return em.createQuery(
+                "SELECT u FROM Usuario u ORDER BY u.activo DESC, u.nombre", Usuario.class)
+                .getResultList();
+    }
+
+    /**
+     * ¿Ya existe otro usuario con ese nombre de usuario?
+     * idExcluir: al editar, se excluye al propio usuario (null al crear).
+     */
+    public boolean existeUsuario(String usuario, Integer idExcluir) {
+        Long cantidad = em.createQuery(
+                "SELECT COUNT(u) FROM Usuario u "
+                + "WHERE u.usuario = :usuario AND (:id IS NULL OR u.idusuario <> :id)", Long.class)
+                .setParameter("usuario", usuario)
+                .setParameter("id", idExcluir)
+                .getSingleResult();
+        return cantidad > 0;
     }
 
     /** Calcula el hash SHA-256 en hexadecimal (igual que SHA2(texto, 256) de MySQL). */

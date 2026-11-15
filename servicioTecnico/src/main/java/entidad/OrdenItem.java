@@ -106,6 +106,10 @@ public class OrdenItem implements Serializable {
     public void setOrden(Orden orden) {
         this.orden = orden;
     }
+    
+    public java.math.BigDecimal getSubtotal() {
+        return precioUnitario.multiply(java.math.BigDecimal.valueOf(cantidad));
+    }
 
     @Override
     public int hashCode() {

@@ -7,18 +7,16 @@
     <title>Servicio Técnico de PC</title>
 </head>
 <body>
-    <h1>Servicio Técnico de PC</h1>
-    <p>
-        Hola, <b>${sessionScope.usuario.nombre}</b> (${sessionScope.usuario.rol}) |
-        <a href="Logout">Cerrar sesión</a>
-    </p>
-    <hr>
+    <%@include file="/WEB-INF/vista/plantilla/encabezado.jspf" %>
+
+    <h1>Bienvenido, ${sessionScope.usuario.nombre}</h1>
 
     <%-- Menú común: admin y empleado --%>
     <h3>Atención</h3>
     <ul>
         <li><a href="ListarClientes">Clientes</a></li>
         <li><a href="ListarOrdenes">Órdenes de reparación</a></li>
+        <li><a href="ListarItems">Ítems y precios</a></li>
     </ul>
 
     <%-- Menú solo para el administrador --%>
@@ -26,7 +24,7 @@
         <h3>Administración</h3>
         <ul>
             <li><a href="ListarUsuarios">Usuarios</a></li>
-            <li><a href="ListarItems">Ítems y precios</a></li>
+            <li><a href="NuevoItem">Agregar ítem</a></li>
         </ul>
     </c:if>
 </body>

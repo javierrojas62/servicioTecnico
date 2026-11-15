@@ -172,6 +172,18 @@ public class Orden implements Serializable {
         hash += (idorden != null ? idorden.hashCode() : 0);
         return hash;
     }
+    
+        /** Total de la orden: suma de los subtotales de sus ítems. No se guarda en la base, se calcula. */
+    public java.math.BigDecimal getTotal() {
+        java.math.BigDecimal total = java.math.BigDecimal.ZERO;
+        if (ordenItemCollection != null) {
+            for (OrdenItem oi : ordenItemCollection) {
+                total = total.add(oi.getSubtotal());
+            }
+        }
+        return total;
+    }
+    
 
     @Override
     public boolean equals(Object object) {

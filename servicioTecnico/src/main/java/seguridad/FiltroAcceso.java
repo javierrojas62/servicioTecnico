@@ -24,10 +24,11 @@ public class FiltroAcceso implements Filter {
     // URLs que se pueden visitar sin iniciar sesión
     private static final Set<String> PUBLICAS = Set.of("/login.jsp", "/Login");
 
-    // URLs exclusivas del rol ADMIN (se van agregando a medida que se crean)
+    // URLs exclusivas del rol ADMIN
     private static final Set<String> SOLO_ADMIN = Set.of(
-            "/ListarUsuarios", "/NuevoUsuario", "/EditarUsuario", "/GuardarUsuario", "/EliminarUsuario",
-            "/NuevoItem", "/EditarItem", "/GuardarItem", "/EliminarItem");
+            "/ListarUsuarios", "/NuevoUsuario", "/EditarUsuario", "/GuardarUsuario", "/CambiarEstadoUsuario",
+            "/NuevoItem", "/EditarItem", "/GuardarItem", "/EliminarItem",
+            "/EliminarCliente");
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
