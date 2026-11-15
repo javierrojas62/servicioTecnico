@@ -1,0 +1,14 @@
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/controlador/Manejador.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/entidad/Cliente.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/entidad/Item.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/entidad/Orden.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/entidad/OrdenItem.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/entidad/OrdenItemPK.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/entidad/Usuario.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/seguridad/FiltroAcceso.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/sesion/AbstractFacade.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/sesion/ClienteFacade.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/sesion/ItemFacade.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/sesion/OrdenFacade.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/sesion/OrdenItemFacade.java
+/home/javierrojas/Facultad/desarrollo-backend3/final/servicioTecnico/src/main/java/sesion/UsuarioFacade.java

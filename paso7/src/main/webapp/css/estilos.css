@@ -1,0 +1,171 @@
+/* ==========================================================
+   Servicio Tecnico de PC - hoja de estilos comun
+   Se aplica a todas las paginas desde el encabezado.
+   ========================================================== */
+
+:root {
+    --primario: #1f4e79;
+    --primario-oscuro: #163a5a;
+    --acento: #2e86de;
+    --fondo: #f3f5f8;
+    --tarjeta: #ffffff;
+    --borde: #d9dee5;
+    --texto: #1f2933;
+    --texto-suave: #5f6b7a;
+    --ok: #1e7e34;
+    --ok-fondo: #e6f4ea;
+    --error: #b42318;
+    --error-fondo: #fdecea;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0 32px 40px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+    font-size: 15px;
+    color: var(--texto);
+    background: var(--fondo);
+}
+
+
+/* ----------------------- Encabezado ----------------------- */
+header.barra {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin: 0 -32px;               /* ocupa todo el ancho, por encima del margen del body */
+    padding: 14px 32px;
+    background: var(--primario);
+    color: #fff;
+}
+header.barra .marca {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+header.barra nav { display: flex; gap: 4px; flex-wrap: wrap; }
+header.barra nav a {
+    color: #dbe7f3;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+header.barra nav a:hover { background: var(--primario-oscuro); color: #fff; }
+header.barra .usuario { margin-left: auto; font-size: 14px; color: #dbe7f3; }
+header.barra .usuario b { color: #fff; }
+header.barra .usuario a { color: #fff; margin-left: 8px; }
+header.barra + hr { display: none; }
+
+/* ------------------------- Textos ------------------------- */
+h1 { font-size: 26px; margin: 28px 0 16px; color: var(--primario); }
+h2 { font-size: 20px; color: var(--primario); }
+h3 { font-size: 17px; margin: 24px 0 10px; color: var(--primario-oscuro); }
+a { color: var(--acento); }
+
+/* Mensajes de exito y error */
+.mensaje, .error {
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-top: 16px;
+    max-width: 900px;
+}
+.mensaje { background: var(--ok-fondo); color: var(--ok); border: 1px solid #b7dfc2; }
+.error   { background: var(--error-fondo); color: var(--error); border: 1px solid #f5c2bd; }
+
+/* ------------------------- Tablas ------------------------- */
+table {
+    border-collapse: collapse;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde) !important;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    margin-bottom: 8px;
+    padding: 0 !important;
+}
+th, td {
+    border: none;
+    border-bottom: 1px solid var(--borde);
+    padding: 9px 14px;
+    text-align: left;
+    vertical-align: middle;
+}
+th {
+    background: #e9eef4;
+    color: var(--primario-oscuro);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #f7f9fc; }
+
+/* ----------------------- Formularios ---------------------- */
+form { margin-bottom: 8px; }
+label { font-weight: 600; color: var(--texto-suave); margin-right: 6px; }
+input[type=text], input[type=password], input[type=number], input[type=email],
+input[type=tel], select, textarea {
+    font: inherit;
+    padding: 7px 10px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    background: #fff;
+    min-width: 240px;
+}
+input[type=number] { min-width: 0; }
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--acento);
+    box-shadow: 0 0 0 3px rgba(46, 134, 222, .15);
+}
+button {
+    font: inherit;
+    font-weight: 600;
+    padding: 7px 16px;
+    border: none;
+    border-radius: 6px;
+    background: var(--acento);
+    color: #fff;
+    cursor: pointer;
+}
+button:hover { background: var(--primario); }
+td button { padding: 4px 10px; font-size: 13px; margin-left: 6px; }
+
+/* ------------------------- Listas ------------------------- */
+ul { list-style: none; padding-left: 0; }
+ul li { margin: 6px 0; }
+ul li a {
+    display: inline-block;
+    padding: 10px 16px;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    text-decoration: none;
+    min-width: 260px;
+}
+ul li a:hover { border-color: var(--acento); }
+
+/* -------------------------- Login ------------------------- */
+body.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0;
+}
+body.login > .tarjeta {
+    width: 360px;
+    padding: 32px;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+}
+.tarjeta h1 { margin: 0 0 4px; font-size: 22px; }
+.tarjeta p.sub { margin: 0 0 20px; color: var(--texto-suave); }
+.tarjeta label { display: block; margin: 12px 0 4px; }
+.tarjeta input { width: 100%; min-width: 0; }
+.tarjeta button { width: 100%; margin-top: 20px; padding: 10px; }

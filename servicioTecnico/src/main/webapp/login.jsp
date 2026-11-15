@@ -5,23 +5,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Iniciar sesión - Servicio Técnico</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilos.css">
 </head>
-<body>
-    <h1>Servicio Técnico de PC</h1>
-    <h2>Iniciar sesión</h2>
+<body class="login">
+    <div class="tarjeta">
+        <h1>Servicio Técnico de PC</h1>
+        <p class="sub">Ingresá con tu usuario</p>
 
-    <c:if test="${not empty error}">
-        <p style="color:red"><b>${error}</b></p>
-    </c:if>
+        <c:if test="${not empty error}">
+            <p class="error">${error}</p>
+        </c:if>
 
-    <form action="Login" method="post">
-        <label>Usuario:</label>
-        <input type="text" name="usuario" required autofocus><br><br>
+        <form action="Login" method="post">
+            <label>Usuario</label>
+            <input type="text" name="usuario" required autofocus>
 
-        <label>Contraseña:</label>
-        <input type="password" name="clave" required><br><br>
+            <label>Contraseña</label>
+            <input type="password" name="clave" required>
 
-        <button type="submit">Ingresar</button>
-    </form>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
 </body>
 </html>
