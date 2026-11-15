@@ -1,0 +1,5 @@
+target/
+nbactions*.xml
+nbproject/private/
+*.class
+*.war
